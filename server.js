@@ -36,4 +36,4 @@ const convertHtmlToImage = async (req, res) => {
   res.send(imageBuffer);
 };
 
-app.get("/api/html-to-image/", asyncHandler(convertHtmlToImage));
+app.get("/api/html-to-image", asyncHandler(convertHtmlToImage));
