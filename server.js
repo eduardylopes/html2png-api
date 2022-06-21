@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 app.listen(process.env.PORT || 3333, () => {
-  console.log(`Server at http://localhost:3333`);
+  console.log("Server is running");
 });
 
 const convertHtmlToImage = async (req, res) => {
