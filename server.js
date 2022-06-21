@@ -17,7 +17,11 @@ const convertHtmlToImage = async (req, res) => {
     throw new Error("Invalid URL");
   }
 
-  const browser = await puppeteer.launch();
+  // To run as Heroku App, you should be able to solve this issue by passing the --no-sandbox and --disable-setuid-sandbox flags to puppeteer.launch()
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
+
   const page = await browser.newPage();
   await page.goto(url);
   await page.waitForSelector(process.env.ELEMENT_ID);
